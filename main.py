@@ -1,53 +1,37 @@
 """
 this is the most basic form of the guessing game
-
 """
 
+import random
 
-import random 
+MAX_NUMBER = 10  # max number
+MIN_NUMBER = 1  # min number
 
-MAX_NUMBER= 10 #max number
-MIN_NUMBER = 1 #min number 
+# making random number
+random_number = int(random.randint(MIN_NUMBER, MAX_NUMBER))
 
-random_number = int(random.randint(MIN_NUMBER, MAX_NUMBER)) #making random number 
-
-#this is just to help me so i know what the number is 
-#print(random_number)
-while True: #main game loop 
+while True:  # main game loop
     try:
-        #asking use for an number 
-        user_answer = int(input('guess a number bettween {} and {}: '.format(MIN_NUMBER, MAX_NUMBER)))
-        
-        if(user_answer == random_number): #they guessed the number
+        # asking use for an number
+        user_answer = int(input(
+            f'guess a number bettween {MIN_NUMBER} and {MAX_NUMBER}: '
+        ))
+        if(user_answer == random_number):  # they guessed the number
             print('you have guessed the number!!!')
 
-        elif(user_answer < MIN_NUMBER) or (user_answer > MAX_NUMBER): #the number is too small or too big  
-            print('that number is not bettween {} and {}'.format(MIN_NUMBER, MAX_NUMBER))
-
-        elif(user_answer > random_number): #if number is bigger than the random number
+        # the number is too small or too big
+        elif(user_answer < MIN_NUMBER) or (user_answer > MAX_NUMBER):
+            print(f'that number is not bettween {MIN_NUMBER} and {MAX_NUMBER}')
+        # if number is bigger than the random number
+        elif(user_answer > random_number):
             print('that number is too big')
-        
-        elif(user_answer < random_number):#if number is smaller that the random number 
+        # if number is smaller that the random number
+        elif(user_answer < random_number):
             print('that number is to small')
-
-        else: #anything else 
+        else:  # anything else
             print('that is not an answer i can use')
-            print('guess a number {} and {}'.format(MIN_NUMBER, MAX_NUMBER))
+            print(f'guess a number {MIN_NUMBER} and {MAX_NUMBER}')
 
-    except ValueError: #if they dont user a number 
+    except ValueError:  # if they dont user a number
         print('that is not an answer i can use')
-        print('guess a number {} and {}'.format(MIN_NUMBER, MAX_NUMBER))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        print(f'guess a number {MIN_NUMBER} and {MAX_NUMBER}')
